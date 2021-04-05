@@ -115,7 +115,7 @@ impl<K: Hash + Eq, V> LFUCache<K, V> {
         self.frequency_bin.entry(count + 1).or_default().insert(key);
     }
 
-    fn evict(&mut self) {
+    pub fn evict(&mut self) {
         let least_frequently_used_keys = self.frequency_bin.get_mut(&self.min_frequency).unwrap();
         let least_recently_used = least_frequently_used_keys.pop_front().unwrap();
         self.values.remove(&least_recently_used);
