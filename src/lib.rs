@@ -24,6 +24,11 @@
 //! # }
 //! ```
 
+#![no_std]
+use std::prelude::v1::*;
+#[macro_use]
+extern crate sgx_tstd as std;
+
 use std::collections::HashMap;
 use std::hash::Hash;
 use linked_hash_set::LinkedHashSet;
